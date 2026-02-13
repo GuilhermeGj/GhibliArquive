@@ -1,0 +1,11 @@
+# Arquivos de sistema
+.DS_Store
+*.swp
+
+# Variáveis de ambiente
+.env
+
+# Arquivos de credenciais
+*.mobileprovision
+*.p12
+*.cer
