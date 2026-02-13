@@ -12,6 +12,18 @@ O **Ghibli Archive** é um aplicativo nativo para iOS que permite aos fãs do St
 - ⚡ Performance otimizada com sistema de cache
 - 🌐 Suporte para modo offline após o primeiro carregamento
 
+## 📱 Screenshots
+
+<p align="center">
+  <img src="Screenshots/welcome-screen.png" width="250" alt="Tela de Boas-vindas"/>
+  <img src="Screenshots/film-catalog.png" width="250" alt="Catálogo de Filmes"/>
+  <img src="Screenshots/film-detail.png" width="250" alt="Detalhes do Filme"/>
+</p>
+
+<p align="center">
+  <em>Tela de Boas-vindas • Catálogo de Filmes • Detalhes do Filme</em>
+</p>
+
 ## 🏗️ Arquitetura
 
 O projeto utiliza uma arquitetura **MVVM (Model-View-ViewModel)** com separação clara de responsabilidades em camadas:
