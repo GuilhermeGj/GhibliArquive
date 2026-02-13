@@ -16,6 +16,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		5683E0B52F3F9C9500984188 /* Screenshots */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		56A495EC2F3D2C9100D7E8B0 /* Ghibli Archive */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Ghibli Archive";
@@ -37,6 +42,7 @@
 		56A495E12F3D2C9100D7E8B0 = {
 			isa = PBXGroup;
 			children = (
+				5683E0B52F3F9C9500984188 /* Screenshots */,
 				5683E0A12F3F9B9C00984188 /* README.md */,
 				56A495EC2F3D2C9100D7E8B0 /* Ghibli Archive */,
 				56A495EB2F3D2C9100D7E8B0 /* Products */,
@@ -67,6 +73,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				5683E0B52F3F9C9500984188 /* Screenshots */,
 				56A495EC2F3D2C9100D7E8B0 /* Ghibli Archive */,
 			);
 			name = "Ghibli Archive";
