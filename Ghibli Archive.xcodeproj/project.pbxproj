@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		5683E0B42F3F9B9C00984188 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 5683E0A12F3F9B9C00984188 /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		5683E0A12F3F9B9C00984188 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		56A495EA2F3D2C9100D7E8B0 /* Ghibli Archive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ghibli Archive.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -32,6 +37,7 @@
 		56A495E12F3D2C9100D7E8B0 = {
 			isa = PBXGroup;
 			children = (
+				5683E0A12F3F9B9C00984188 /* README.md */,
 				56A495EC2F3D2C9100D7E8B0 /* Ghibli Archive */,
 				56A495EB2F3D2C9100D7E8B0 /* Products */,
 			);
@@ -109,6 +115,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5683E0B42F3F9B9C00984188 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
