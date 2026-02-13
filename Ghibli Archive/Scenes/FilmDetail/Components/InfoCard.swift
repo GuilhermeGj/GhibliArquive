@@ -12,7 +12,6 @@ struct InfoCardStyleScheme {
     let iconColor: Color
     let backgroundColor: Color
     
-    // Predefined styles
     static let year = InfoCardStyleScheme(
         icon: "calendar",
         iconColor: Color(red: 0.6, green: 0.15, blue: 0.25),
@@ -38,7 +37,6 @@ struct InfoCard: View {
     let label: String
     let value: String
     
-    // New initializer with style scheme
     init(styleScheme: InfoCardStyleScheme, label: String, value: String) {
         self.styleScheme = styleScheme
         self.label = label

@@ -7,7 +7,6 @@
 
 import Foundation
 
-/// ViewModel para a tela de catálogo de filmes
 @Observable
 final class FilmCatalogViewModel {
     

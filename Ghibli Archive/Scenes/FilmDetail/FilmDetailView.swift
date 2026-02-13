@@ -88,44 +88,45 @@ struct FilmDetailView: View {
                         
                         // MARK: - ErrorState
                         
-                        if let errorMessage = viewModel.errorMessage {
+                        else if let errorMessage = viewModel.errorMessage {
                             getErrorView(errorMessage: errorMessage)
                         }
                         
-                        
                         // MARK: - InfoCards
                         
-                        HStack(spacing: 16) {
-                            InfoCard(styleScheme: InfoCardStyleScheme.year,
-                                     label: "Ano",
-                                     value: "\(viewModel.film?.year ?? 0000)")
-                            InfoCard(styleScheme: InfoCardStyleScheme.duration,
-                                     label: "Duraação",
-                                     value: "\(viewModel.film?.duration ?? 00)\nmin")
-                            InfoCard(styleScheme: InfoCardStyleScheme.rating,
-                                     label: "Nota",
-                                     value: viewModel.formattedRating)
+                        else {
+                            HStack(spacing: 16) {
+                                InfoCard(styleScheme: InfoCardStyleScheme.year,
+                                         label: "Ano",
+                                         value: "\(viewModel.film?.year ?? 0000)")
+                                InfoCard(styleScheme: InfoCardStyleScheme.duration,
+                                         label: "Duraação",
+                                         value: "\(viewModel.film?.duration ?? 00)\nmin")
+                                InfoCard(styleScheme: InfoCardStyleScheme.rating,
+                                         label: "Nota",
+                                         value: viewModel.formattedRating)
+                            }
+                            .padding(.top, 30)
+                            
+                            
+                            // MARK: - ProductionInfoCard
+                            
+                            SectionCard(styleScheme: SectionCardStyleScheme.synopsis,
+                                        title: "SINOPSE",
+                                        content: viewModel.film?.synopsis ?? ""
+                            )
+                            
+                            SectionCard(styleScheme: SectionCardStyleScheme.director,
+                                        title: "Diretor",
+                                        content: viewModel.film?.director ?? ""
+                            )
+                            
+                            SectionCard(styleScheme: SectionCardStyleScheme.producer,
+                                        title: "Produtor",
+                                        content: viewModel.film?.producer ?? ""
+                            )
+                            .padding(.bottom, 40)
                         }
-                        .padding(.top, 30)
-                        
-                        
-                        // MARK: - ProductionInfoCard
-                        
-                        SectionCard(styleScheme: SectionCardStyleScheme.synopsis,
-                                    title: "SINOPSE",
-                                    content: viewModel.film?.synopsis ?? ""
-                        )
-                        
-                        SectionCard(styleScheme: SectionCardStyleScheme.director,
-                                    title: "Diretor",
-                                    content: viewModel.film?.director ?? ""
-                        )
-                        
-                        SectionCard(styleScheme: SectionCardStyleScheme.producer,
-                                    title: "Produtor",
-                                    content: viewModel.film?.producer ?? ""
-                        )
-                        .padding(.bottom, 40)
                     }
                 }
             }

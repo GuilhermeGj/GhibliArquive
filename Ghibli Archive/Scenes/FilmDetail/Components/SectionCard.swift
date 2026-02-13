@@ -11,7 +11,6 @@ struct SectionCardStyleScheme {
     let titleColor: Color
     let borderColor: Color
     
-    // Predefined styles
     static let primary = SectionCardStyleScheme(
         titleColor: Color(red: 0.6, green: 0.15, blue: 0.25),
         borderColor: Color(red: 0.6, green: 0.15, blue: 0.25)
@@ -44,7 +43,6 @@ struct SectionCard: View {
     let title: String
     let content: String
     
-    // New initializer with style scheme
     init(styleScheme: SectionCardStyleScheme, title: String, content: String) {
         self.styleScheme = styleScheme
         self.title = title

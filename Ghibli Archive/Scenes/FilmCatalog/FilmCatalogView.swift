@@ -42,21 +42,26 @@ struct FilmCatalogView: View {
                     
                     // MARK: - FilmList
                     filmCatalog
+                        .frame(maxWidth: .infinity, alignment: .center)
                     
                     
                     // MARK: - LoadingState
                     if viewModel.isLoading {
-                        ProgressView()
-                            .scaleEffect(1.5)
-                            .padding()
-                    }
-                    
-                    // MARK: - ErrorState
-
-                    if let errorMessage = viewModel.errorMessage {
-                        getErrorMessage(message: errorMessage)
+                        HStack {
+                            Spacer()
+                            ProgressView()
+                                .scaleEffect(1.5)
+                                .padding()
+                            Spacer()
+                        }
                     }
                 }
+                .frame(maxWidth: .infinity)
+            }
+            
+            // MARK: - ErrorState
+            if let errorMessage = viewModel.errorMessage {
+                getErrorMessage(message: errorMessage)
             }
         }
         .navigationBarBackButtonHidden(true)

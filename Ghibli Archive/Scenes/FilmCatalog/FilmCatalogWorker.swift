@@ -30,7 +30,6 @@ final class FilmCatalogWorker: FilmCatalogWorkerProtocol {
     // MARK: - Public Methods
 
     func fetchAllFilms() async throws -> [FilmListItem] {
-        // Verificar cache válido
         if let cached = cachedFilms,
            let timestamp = cacheTimestamp,
            Date().timeIntervalSince(timestamp) < cacheValidityDuration {

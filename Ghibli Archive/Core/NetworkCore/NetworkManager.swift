@@ -7,7 +7,6 @@
 
 import Foundation
 
-/// Gerenciador de requisições de rede com isolamento no MainActor
 @MainActor
 final class NetworkManager {
     
@@ -21,15 +20,12 @@ final class NetworkManager {
     
     // MARK: - Initialization
     private init() {
-        // Configuração do URLSession com timeout customizado
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 30
         configuration.timeoutIntervalForResource = 60
         self.session = URLSession(configuration: configuration)
         
-        // Configuração do JSONDecoder
         self.decoder = JSONDecoder()
-        // Não usar .convertFromSnakeCase pois o FilmDTO já faz o mapeamento manual via CodingKeys
     }
     
     // MARK: - Generic Request Method
@@ -43,30 +39,24 @@ final class NetworkManager {
         endpoint: String,
         type: T.Type
     ) async throws -> T {
-        // 1. Construir URL
         guard let url = URL(string: baseURL + endpoint) else {
             throw NetworkError.invalidURL
         }
         
-        // 2. Criar Request
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        // 3. Executar Request
         let (data, response) = try await session.data(for: request)
         
-        // 4. Validar Response
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.invalidResponse
         }
         
-        // 5. Verificar Status Code
         guard (200...299).contains(httpResponse.statusCode) else {
             throw NetworkError.httpError(statusCode: httpResponse.statusCode)
         }
         
-        // 6. Debug: Imprimir resposta (remover em produção)
         #if DEBUG
         if let jsonString = String(data: data, encoding: .utf8) {
             print("📥 Response from \(endpoint):")
@@ -74,7 +64,6 @@ final class NetworkManager {
         }
         #endif
         
-        // 7. Decodificar dados
         do {
             let decodedData = try decoder.decode(T.self, from: data)
             return decodedData
@@ -89,7 +78,6 @@ final class NetworkManager {
     
     // MARK: - Helper Methods
     
-    /// Imprime detalhes do erro de decodificação para facilitar debug
     private func printDecodingError(_ error: DecodingError) {
         switch error {
         case .keyNotFound(let key, let context):
@@ -167,7 +155,6 @@ enum NetworkError: LocalizedError {
 
 // MARK: - Service Errors
 
-/// Erros possíveis do serviço de filmes
 enum FilmServiceError: LocalizedError {
     case networkError(NetworkError)
     case filmNotFound

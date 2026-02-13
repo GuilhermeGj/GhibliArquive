@@ -16,7 +16,6 @@ struct InitialScreen: View {
             set: { coordinator.path = $0 }
         )) {
             ZStack {
-                // Background gradient
                 LinearGradient(
                     colors: [
                         Color(red: 0.55, green: 0.35, blue: 0.25),
@@ -27,16 +26,13 @@ struct InitialScreen: View {
                 )
                 .ignoresSafeArea()
                 
-                // Wave pattern background
                 WavePatternView()
                     .ignoresSafeArea()
                 
                 VStack(spacing: 40) {
                     Spacer()
                     
-                    // Logo container with decorative circles
                     ZStack {
-                        // Decorative circles
                         Circle()
                             .fill(Color.yellow)
                             .frame(width: 40, height: 40)
@@ -47,7 +43,6 @@ struct InitialScreen: View {
                             .frame(width: 30, height: 30)
                             .offset(x: -120, y: 80)
                         
-                        // Logo card
                         RoundedRectangle(cornerRadius: 30)
                             .fill(
                                 LinearGradient(
@@ -76,9 +71,7 @@ struct InitialScreen: View {
                             )
                             .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y: 10)
                         
-                        // Bamboo and leaf icon (simplified representation)
                         VStack(spacing: 0) {
-                            // Leaf
                             Image(systemName: "leaf.fill")
                                 .font(.system(size: 50))
                                 .foregroundStyle(
@@ -91,7 +84,6 @@ struct InitialScreen: View {
                                 .rotationEffect(.degrees(20))
                                 .offset(x: 10, y: 10)
                             
-                            // Bamboo (represented by rectangles)
                             RoundedRectangle(cornerRadius: 8)
                                 .fill(
                                     LinearGradient(
@@ -109,7 +101,6 @@ struct InitialScreen: View {
                     }
                     .padding(.top, 60)
                     
-                    // Studio Ghibli text
                     HStack(spacing: 8) {
                         Rectangle()
                             .fill(Color.yellow.opacity(0.8))
@@ -126,12 +117,10 @@ struct InitialScreen: View {
                     }
                     .padding(.top, 20)
                     
-                    // Welcome text
                     Text("Bem-vindo")
                         .font(.system(size: 70, weight: .bold))
                         .foregroundColor(.white)
                     
-                    // Description text
                     Text("Explore a coleção mágica\nque encantou gerações ao\nredor do mundo")
                         .font(.system(size: 18, weight: .regular))
                         .foregroundColor(.white.opacity(0.9))
@@ -141,7 +130,6 @@ struct InitialScreen: View {
                         .fixedSize(horizontal: false, vertical: true)
                     Spacer()
                     
-                    // Start button
                     Button(action: {
                         coordinator.navigateToFilmCatalog()
                     }) {
@@ -185,7 +173,6 @@ struct InitialScreen: View {
     }
 }
 
-// Wave pattern background view
 struct WavePatternView: View {
     var body: some View {
         GeometryReader { geometry in
@@ -203,7 +190,6 @@ struct WavePatternView: View {
     }
 }
 
-// Wave shape
 struct Wave: Shape {
     var offset: Double
     
@@ -225,9 +211,4 @@ struct Wave: Shape {
         
         return path
     }
-}
-
-#Preview {
-    InitialScreen()
-        .environment(AppCoordinator())
 }
